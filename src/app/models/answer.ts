@@ -1,2 +1,4 @@
-export interface Answer {
+export interface AnswerI {
+  name: string,
+  isCorret: number
 }
