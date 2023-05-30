@@ -1,6 +1,6 @@
 import { AnswerI } from "./answer";
 
-export interface Question {
+export interface QuestionI {
   description: string,
   answers: AnswerI[]
 }
