@@ -2,3 +2,21 @@
 body {
   background-color: #04c582;
 }
+
+.list-group-item {
+  cursor: pointer;
+}
+
+.badge {
+  float: right;
+}
+
+.corret {
+  color: #17a2b8;
+  font-size: 18px;
+}
+
+.incorret {
+  color: #da2d2d;
+  font-size: 18px;
+}

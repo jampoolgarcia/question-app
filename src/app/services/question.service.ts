@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { QuestionI } from '../models/question';
+import { AnswerI } from '../models/answer';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { QuestionI } from '../models/question';
 export class QuestionService {
 
   private questions!: QuestionI[];
+  private answersSelection!: AnswerI[];
 
   constructor() {
     this.buildData();
@@ -46,4 +48,17 @@ export class QuestionService {
       ]
     }];
   }
+
+  getSelectedAnswer(){
+    return this.answersSelection;
+  }
+
+  addSelectedAnswer(a: AnswerI){
+    this.answersSelection.push(a);
+  }
+
+  resetSelectedAnswer(){
+    this.answersSelection = [];
+  }
+
 }

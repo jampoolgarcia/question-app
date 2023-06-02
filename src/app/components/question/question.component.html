@@ -4,8 +4,8 @@
     {{ answer.name }}
 
     <span class="badge">
-      <i *ngIf="!isDisabled && answer.isCorret" class="material-icons corret">check</i>
-      <i *ngIf="!isDisabled && answer === seleted && !answer.isCorret"  class="material-icons incorret">clear</i>
+      <i *ngIf="answer === seleted && answer.isCorret" class="material-icons corret">check</i>
+      <i *ngIf="answer === seleted && !answer.isCorret"  class="material-icons incorret">clear</i>
     </span>
   </li>
 </ul> 

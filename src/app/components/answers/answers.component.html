@@ -1,1 +1,19 @@
-<p>answers works!</p>
+<h5 class="card-title">Result</h5>
+<p class="card-text">This is the result of the quiz.</p>
+<div *ngFor="let q of questions; let i = index">
+  <h4 class="card-title">{{ q.description }}</h4>
+  <ul class="list-group" *ngIf="answers">
+    <li class="list-group-item" 
+    [ngClass]="{'list-group-item-success': answers[i].isCorret, 'list-group-item-danger': !answers[i].isCorret}">
+      {{ answers[i].name }}
+      <span class="badge">
+        <i *ngIf="answers[i].isCorret" class="material-icons corret">check</i>
+        <i *ngIf="!answers[i].isCorret"  class="material-icons incorret">clear</i>
+      </span>
+    </li>
+  </ul> 
+</div>
+<div class="row mt-3">
+  <div class="col-lg-4 offset-lg-4">
+    <button (click)="rest()" class="btn btn-info btn-lg w-100">Return</button>
+  </div>

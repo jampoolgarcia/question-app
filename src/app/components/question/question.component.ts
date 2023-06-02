@@ -16,7 +16,14 @@ export class QuestionComponent implements OnInit {
   public seleted!: AnswerI;
   public isDisabled = true;
 
-  constructor(private _service: QuestionService, private _rauter: Router) { }
+  constructor(private _service: QuestionService, private _rauter: Router) { 
+
+  }
+
+  private reset(){
+    this.index = 0;
+    this.isDisabled = true;
+  }
 
   ngOnInit(): void {
     this.questions = this._service.getQuestions();
@@ -33,6 +40,7 @@ export class QuestionComponent implements OnInit {
   selection(a: AnswerI){
     this.seleted = a;
     this.isDisabled = false;
+    this._service.addSelectedAnswer(a);
   }
 
   onClass(a: AnswerI){
@@ -48,7 +56,8 @@ export class QuestionComponent implements OnInit {
       this.index++;
       this.isDisabled = true;
     }else{
-      this._rauter.navigateByUrl('/');
+      this._rauter.navigateByUrl('/answers');
+      this.reset();
     }  
   }
 
