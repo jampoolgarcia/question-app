@@ -1,15 +1,16 @@
 <h4 class="card-title">{{ getQuestion() }}</h4>
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let answer of answers" [ngClass]="onClass(answer)" (click)="selection(answer)">
+  <li class="list-group-item list-group-item-action" [ngClass]="{'disabled': !isDisabled}"   *ngFor="let answer of answers" [ngClass]="onClass(answer)" (click)="selection(answer)">
     {{ answer.name }}
-    <!-- <span class="badge">
-      <i class="material-icons corret">check</i>
-      <i class="material-icons incorret">clear</i>
-    </span> -->
+
+    <span class="badge">
+      <i *ngIf="!isDisabled && answer.isCorret" class="material-icons corret">check</i>
+      <i *ngIf="!isDisabled && answer === seleted && !answer.isCorret"  class="material-icons incorret">clear</i>
+    </span>
   </li>
 </ul> 
 <div class="row mt-3">
   <div class="col-lg-4 offset-lg-4">
-    <button routerLink="/question" [disabled]="isDisabled" class="btn btn-info btn-lg w-100">Next</button>
+    <button (click)="onNext()" routerLink="/question" [disabled]="isDisabled" class="btn btn-info btn-lg w-100">Next</button>
   </div>
 </div>
